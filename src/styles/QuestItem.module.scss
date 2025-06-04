@@ -1,0 +1,14 @@
+.quest-item {
+  background-image: url('/images/parchment.jpg'); /* Новий пергамент */
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #a38b62;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Cinzel', serif;
+  color: #4b381f;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  max-width: 360px;
+  line-height: 1.5;
+}

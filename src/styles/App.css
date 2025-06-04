@@ -1,0 +1,372 @@
+/* 🌄 Загальний фон та шрифт */
+body {
+  margin: 0;
+  font-family: 'MedievalSharp', cursive;
+  background: url('/images/Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #222;
+}
+
+/* 🧱 Загальне компонування */
+.app-layout {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+/* 🔲 Ліва колонка — головна зона гри */
+.main-column {
+  flex: 2;
+  min-width: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+/* Права колонка (обробка, апгрейди, бій) */
+.side-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Третя колонка — пасивні апгрейди */
+.passive-column {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 🧱 Загальний стиль для блоків */
+.main-column,
+.side-column {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 🪵 Дошка замовлень */
+.quest-board {
+  background: url('/images/wood.jpg');
+  background-size: cover;
+  padding: 2rem;
+  border: 5px ridge #6b4e2e;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* 📜 Один квест */
+.quest-item {
+  background-image: url('/images/parchment.jpg');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #a38b62;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Cinzel', serif;
+  color: #4b381f;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+/* 🛠️ Апгрейди */
+.upgrade-panel {
+  background-color: #f9f6ef;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #a68c5a;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.upgrade-panel h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.upgrade-panel button {
+  padding: 0.5rem;
+  background-color: #388e3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.upgrade-panel button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* 🔧 Обробка ресурсів */
+.processing-panel {
+  background-color: #fcf8f3;
+  border: 2px solid #c0a26f;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-family: 'Cinzel', serif;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.processing-panel h2 {
+  margin-bottom: 1rem;
+}
+
+.processing-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.processing-panel li {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.processing-panel button {
+  background-color: #6d4c41;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.processing-panel button:hover {
+  background-color: #5d4037;
+}
+
+.inventory-panel {
+  background-color: #f1efe9;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #a79b7f;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.inventory-panel h2 {
+  margin-bottom: 0.8rem;
+}
+
+.inventory-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.inventory-panel li {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.passive-upgrades {
+  background-color: #f3f1e8;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #b9a67a;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.passive-upgrades h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.passive-upgrades ul {
+  list-style: none;
+  padding: 0;
+}
+
+.passive-upgrades li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.passive-upgrades button {
+  background-color: #795548;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.passive-upgrades button:hover {
+  background-color: #5d4037;
+}
+
+.passive-upgrades button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.sell-panel {
+  background-color: #f6efe1;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #c9a56d;
+  margin-top: 1rem;
+}
+
+.sell-panel h2 {
+  margin-bottom: 1rem;
+}
+
+.sell-panel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sell-panel li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sell-panel button {
+  padding: 0.3rem 0.6rem;
+  background-color: #795548;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sell-panel button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+.quest-board button {
+  padding: 0.4rem 0.8rem;
+  background-color: #6b4e2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.quest-board button:hover {
+  background-color: #5a4025;
+}
+
+/* 🔷 Вкладки */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.tabs button {
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.tabs button.active {
+  background-color: #d6b46c;
+  color: white;
+}
+
+/* 🔲 Контент вкладки */
+.tab-content {
+  background: #fffbe9;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+/* 🔴 Бойова зона */
+.combat-section {
+  display: flex;
+  background: #f4f4f4;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.combat-left {
+  flex: 1;
+  padding: 1rem;
+}
+.combat-divider {
+  width: 2px;
+  background-color: #ccc;
+}
+.combat-right {
+  flex: 1;
+  padding: 1rem;
+}
+.combat-inventory {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.combat-slot {
+  background: #fff;
+  border: 1px dashed #888;
+  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.gear-panel {
+  background-color: #f7f4ec;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid #c4b089;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.gear-item {
+  margin-bottom: 1rem;
+}
+
+.gear-item button {
+  background-color: #4455aa;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gear-item button:hover {
+  background-color: #223377;
+}
